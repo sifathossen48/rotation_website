@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+
+    <main>
+
+        <section class="container">
+            <div>
+                <img class="single_news_page_header_img rounded-3" src="{{n.image.url}}"
+                    alt="">
+            </div>
+
+            <div>
+                <h1 class="single_news_page_news_title">{{n.title}}</h1>
+            </div>
+            <div>
+                <h1 class="single_news_page_news_title">{{n.description | safe}}</h1>
+            </div>
+
+            <div class=" mt-5">
+                <div class="row row-cols-2 row-cols-lg-3 g-2 g-lg-3">
+                  {% for gallery in newsGallery %}
+                  <div class="col">
+                    <div class="p-1 border rounded"><img class="w-100" src="{{gallery.photo.url}}" alt=""></div>
+                  </div>
+                  {% endfor %}
+                 
+             
+                </div>
+              </div>
+
+        </section>
+
+    </main>
+
+{% endblock content %}
