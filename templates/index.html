@@ -1,159 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>Home - Rotation World</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-
-  <!-- Favicons -->
-  <link href="assets/img/fav.JPG" rel="icon">
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo&display=swap" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <!-- Aos Animatiom -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/3.0.0-beta.6/aos.css"
-    integrity="sha512-hoGlO+71fSG6lgS60I4bKvsFVB+bAnrVFDYlwSXoyNLppDcoupwJB7KbWq/63iACKn3gcgK9jMXd+T+YDeVrGQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/3.0.0-beta.6/aos.js"
-    integrity="sha512-tnNM6PPNOVfZ5sGPw6hThCrcUBeqt2mVEk3EAj8tCtuMHqbuVm5/HsZagrr8W2aaFE+6rKIByGwQbEnmodrYVg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
-
-</head>
-
-<body>
-
-  <!-- ======= Top Bar ======= -->
-  <section id="topbar" class="d-flex align-items-center">
-    <div class="container d-flex justify-content-center justify-content-md-between">
-      <div class="contact-info d-flex align-items-center">
-        <i class="bi bi-envelope d-flex align-items-center"><a target="_blank"
-            href="https://mail.google.com/mail/u/0/#inbox">info@rwlbd.com</a></i>
-        <i class="bi bi-phone d-flex align-items-center ms-4"><span>+88 01989221122</span></i>
-      </div>
-    </div>
-  </section>
-
-  <!-- ======= Header ======= -->
-
-  <header id="header" class="d-flex align-items-center">
-    <div class="container d-flex justify-content-between align-items-center">
-
-      <div class="logo">
-        <a href="index"><img src="assets/img/c_logo.png" alt=""></a>
-      </div>
-
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="active" href="index">Home</a></li>
-          <li><a href="about">About</a></li>
-          <li class="dropdown"><a href="#"><span>Products</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li class="dropdown"><a href="#"><span>Bearings</span> <i class="bi bi-chevron-right"></i></a>
-                <ul class="m-2 rounded p-2">
-                  <li><a href="kinex-bearings">KINEX Bearings</a></li>
-                  <li><a href="mtk-bearings">MTK Bearings</a></li>
-                  <li><a href="dodge-bearings">DODGE Bearings</a></li>
-                </ul>
-              </li>
-              <li class="dropdown"><a href="#"><span>Belt</span> <i class="bi bi-chevron-right"></i></a>
-                <ul class="m-2 rounded p-2">
-                  <li><a href="ammeraal-belt">Ammeraal Beltech</a></li>
-                  <li><a href="megadyne">Megadyne</a></li>
-                </ul>
-              </li>
-              <li class="dropdown"><a href="#"><span>Textile Machineries</span> <i class="bi bi-chevron-right"></i></a>
-                <ul class="m-2 rounded p-2">
-                  <li><a href="temsan">Temsan Air</a></li>
-                  <li><a href="super">Super</a></li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li><a href="industries">Industries</a></li>
-          <li><a href="news">News & Events</a></li>
-
-          <li><a href="contact">Contact</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav>
-
-    </div>
-  </header>
-
-
-
-  <main id="">
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  
+  <main>
 
     <!-- ======= Hero Section ======= -->
-
-
     <section id="hero">
       <div class="hero-container">
         <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
           <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
           <div class="carousel-inner" role="listbox">
 
-            <!-- Slide 1 -->
-            <div class="carousel-item active" style="background-image: url(assets/img/slide/slide-1.jpg)">
+            <!-- Slide  -->
+            {% for slider in sliders %}
+            <div class="carousel-item active" style="background-image: url({{slider.background.url}})">
               <div class="carousel-container">
                 <div class="carousel-content">
-                  <h2 class="animate__animated animate__fadeInDown text-white">Welcome to <span>Rotation World
-                      Ltd!</span></h2>
-                  <p class="animate__animated animate__fadeInUp text-white">A Sister Concern of System Engineering
-                    Limited.</p>
-                  <a href="" class="btn-get-started animate__animated animate__fadeInUp">Read More</a>
+                  <h2 class="animate__animated animate__fadeInDown text-white">{{slider.title|safe}}</h2>
+                  <p class="animate__animated animate__fadeInUp text-white">{{slider.description}}</p>
+                  <a href="{{slider.button_Link}}" class="btn-get-started animate__animated animate__fadeInUp">Read More</a>
                 </div>
               </div>
             </div>
-
-            <!-- Slide 2 -->
-            <div class="carousel-item" style="background-image: url(assets/img/slide/slide-2.jpg)">
-              <div class="carousel-container">
-                <div class="carousel-content">
-                  <h2 class="animate__animated animate__fadeInDown text-white">The latest technology with <br> <span>
-                      innovative
-                      solutions</span></h2>
-                  <a target="_blank" href="https://www.mtk-bearings.com/"
-                    class="btn-get-started animate__animated animate__fadeInUp">Read More</a>
-                </div>
-              </div>
-            </div>
-
-            <!-- Slide 3 -->
-            <div class="carousel-item" style="background-image: url(assets/img/slide/slide-3.png)">
-              <div class="carousel-container">
-                <div class="carousel-content">
-                  <h2 class="animate__animated animate__fadeInDown"><span class="text-white">Ammeraal</span><span>
-                      Beltech</span></h2>
-                  <p class="animate__animated animate__fadeInUp text-white">A leading global belting company and trusted
-                    brand.
-                    Founded in 1950, Ammeraal Beltech is a global market leader in the design, manufacturing,
-                    fabrication
-                    and servicing of high-quality, high-performance
-                    process and conveyor belts, available today in 150 countries around the world.</p>
-                  <a href="" class="btn-get-started animate__animated animate__fadeInUp">Read More</a>
-                </div>
-              </div>
-            </div>
+           {% endfor %}
           </div>
           <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
             <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
@@ -175,71 +44,17 @@
 
       <div class="container">
         <div class="row row-cols-1 row-cols-md-3 g-4">
+          {% for b in brands %}
           <div data-aos="fade-up" class="col">
             <div class=" single_cards h-100 rounded">
-              <a target="_blank" href="https://www.ammeraalbeltech.com/en/">
+              <a target="_blank" href="{{b.website_Link}}">
                 <div class="border-0 p-3 shadow-sm rounded h-100">
-                  <img src="assets/img/Brand_logo/logo-ammeraal.svg" class="card-img-top brand_logo" alt="...">
+                  <img src="{{b.logo.url}}" class="card-img-top brand_logo" alt="...">
                 </div>
               </a>
             </div>
           </div>
-          <div data-aos="fade-up" class="col">
-            <div class=" single_cards h-100 rounded">
-              <a target="_blank" href="https://dodgeindustrial.com/products/mounted-bearings/">
-                <div class="border-0 p-3 shadow-sm rounded h-100">
-                  <img src="assets/img/Brand_logo/2.png" class="card-img-top brand_logo" alt="...">
-                </div>
-              </a>
-            </div>
-          </div>
-          <div data-aos="fade-up" class="col">
-            <div class=" single_cards h-100 rounded">
-              <a target="_blank" href="https://www.temsanair.com/">
-                <div class="border-0 p-3 shadow-sm rounded h-100">
-                  <img src="assets/img/Brand_logo/1.jpg" class="card-img-top brand_logo" alt="...">
-                </div>
-              </a>
-            </div>
-          </div>
-          <div data-aos="fade-up" class="col">
-            <div class=" single_cards h-100 rounded">
-              <a target="_blank" href="https://megadynegroup.com/en">
-                <div class="border-0 p-3 shadow-sm rounded h-100">
-                  <img src="assets/img/Brand_logo/megadyne-logo.svg" class="card-img-top brand_logo mt-3" alt="...">
-                </div>
-              </a>
-            </div>
-          </div>
-          <div data-aos="fade-up" class="col">
-            <div class=" single_cards h-100 rounded">
-              <a target="_blank" href="https://www.kinex.sk/">
-                <div class="border-0 p-3 shadow-sm rounded h-100">
-                  <img style="width: 120px !important;" src="assets/img/Brand_logo/3.png"
-                    class="card-img-top brand_logo" alt="...">
-                </div>
-              </a>
-            </div>
-          </div>
-          <div data-aos="fade-up" class="col">
-            <div class=" single_cards h-100  rounded">
-              <a target="_blank" href="https://www.mtk-bearings.com/">
-                <div class="border-0 p-3 shadow-sm rounded h-100">
-                  <img style="width: 80px !important;" src="assets/img/Brand_logo/logo.svg"
-                    class="card-img-top brand_logo" alt="...">
-                </div>
-              </a>
-            </div>
-          </div>
-          <div data-aos="fade-up" class="col">
-            <div class=" single_cards h-100 rounded">
-              <a target="_blank" href="https://supergroupscbe.com/">
-                <div class="border-0 p-3 shadow-sm rounded h-100">
-                  <img src="assets/img/Brand_logo/SUPER-LOGO-01.png" class="card-img-top brand_logo" alt="...">
-                </div>
-              </a>
-            </div>
-          </div>
+          {% endfor %}
         </div>
       </div>
     </section>
@@ -255,66 +70,12 @@
         </div>
 
         <div data-aos="fade-up" class="row row-cols-1 row-cols-md-2 row-cols-lg-5 g-2 g-lg-3">
-          <div class="col industri-icon">
-            <div class="p-3 border shadow-sm rounded industri-name"><img class="w-25 mx-auto d-block industri-icon"
-                src="assets/img/industries-icon/agri.png" alt="">Agriculture</div>
-          </div>
-          <div class="col industri-icon">
-            <div class="p-3 border shadow-sm rounded industri-name"><img class="w-25 mx-auto d-block industri-icon"
-                src="assets/img/industries-icon/conveyor-belt.png" alt="">Airport</div>
-          </div>
-          <div class="col industri-icon">
-            <div class="p-3 border shadow-sm rounded industri-name"><img class="w-25 mx-auto d-block industri-icon"
-                src="assets/img/industries-icon/automotive.png" alt="">Automotive</div>
-          </div>
-          <div class="col industri-icon">
-            <div class="p-3 border shadow-sm rounded industri-name"><img class="w-25 mx-auto d-block industri-icon"
-                src="assets/img/industries-icon/cement-mixer-truck.png" alt="">Cement Mills</div>
-          </div>
-          <div class="col industri-icon">
-            <div class="p-3 border shadow-sm rounded industri-name"><img class="w-25 mx-auto d-block industri-icon"
-                src="assets/img/industries-icon/factory.png" alt="">Ceramic & Glass</div>
-          </div>
-          <div class="col industri-icon">
-            <div class="p-3 border shadow-sm rounded industri-name"><img class="w-25 mx-auto d-block industri-icon"
-                src="assets/img/industries-icon/crean.png" alt="">Crean & Heavy Equipments</div>
-          </div>
-          <div class="col industri-icon">
-            <div class="p-3 border shadow-sm rounded industri-name"><img class="w-25 mx-auto d-block industri-icon"
-                src="assets/img/industries-icon/oil_gas.png" alt="">Energy, Oil & Gas</div>
-          </div>
-          <div class="col industri-icon">
-            <div class="p-3 border shadow-sm rounded industri-name"><img class="w-25 mx-auto d-block industri-icon"
-                src="assets/img/industries-icon/food_bevarage.png" alt="">Food, Beverage & Tea</div>
-          </div>
-          <div class="col industri-icon">
-            <div class="p-3 border shadow-sm rounded industri-name"><img class="w-25 mx-auto d-block industri-icon"
-                src="assets/img/industries-icon/packging.png" alt="">Packaging</div>
-          </div>
-          <div class="col industri-icon">
-            <div class="p-3 border shadow-sm rounded industri-name"><img class="w-25 mx-auto d-block industri-icon"
-                src="assets/img/industries-icon/printing.png" alt="">Paper Mills</div>
-          </div>
-          <div class="col industri-icon">
-            <div class="p-3 border shadow-sm rounded industri-name"><img class="w-25 mx-auto d-block industri-icon"
-                src="assets/img/industries-icon/train.png" alt="">Railway</div>
-          </div>
-          <div class="col industri-icon">
-            <div class="p-3 border shadow-sm rounded industri-name"><img class="w-25 mx-auto d-block industri-icon"
-                src="assets/img/industries-icon/steel.png" alt="">Steel & re-Rolling Mills</div>
-          </div>
-          <div class="col industri-icon">
-            <div class="p-3 border shadow-sm rounded industri-name"><img class="w-25 mx-auto d-block industri-icon"
-                src="assets/img/industries-icon/textile.png" alt="">Textile</div>
-          </div>
-          <div class="col industri-icon">
-            <div class="p-3 border shadow-sm rounded industri-name"><img class="w-25 mx-auto d-block industri-icon"
-                src="assets/img/industries-icon/cigarette.png" alt="">Tobacco</div>
-          </div>
-          <div class="col industri-icon">
-            <div class="p-3 border shadow-sm rounded industri-name"><img class="w-25 mx-auto d-block industri-icon"
-                src="assets/img/industries-icon/wood.png" alt="">Wood</div>
-          </div>
+          {% for i in industries %}
+            <div class="col industri-icon">
+              <div class="p-3 border shadow-sm rounded industri-name"><img class="w-25 mx-auto d-block industri-icon"
+                  src="{{i.icon.url}}" alt="{{i.title}}">{{i.title}}</div>
+            </div> 
+          {% endfor %}
 
         </div>
       </div>
@@ -574,14 +335,9 @@
 
         <div class="clients-slider swiper">
           <div class="swiper-wrapper align-items-center">
-            <div class="swiper-slide"><img src="assets/img/clients/1.JPG" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/2.jfif" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/3.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/4.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/5.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/6.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/7.jfif" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/8.png" class="img-fluid" alt=""></div>
+            {% for c in clients %}
+              <div class="swiper-slide"><img src="{{c.image.url}}" class="img-fluid" alt="{{c.title}}"></div>
+            {% endfor %}
           </div>
           <div class="swiper-pagination"></div>
         </div>
@@ -591,80 +347,4 @@
 
   </main><!-- End #main -->
 
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
-
-    <div class="footer-top">
-      <div class="container">
-        <div class="row">
-
-          <div class="col-lg-4 col-md-6 footer-links">
-            <h4>Useful Links</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Industries</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Contact</a></li>
-            </ul>
-          </div>
-
-
-          <div class="col-lg-4 col-md-6 footer-contact">
-            <h4>Contact Us</h4>
-            <p>
-              House # 653, Diabari Road , Uttara <br>
-              Dhaka-1230, Bangladesh <br>
-              <strong>Phone:</strong> +88 01933-110077<br>
-              <strong>Email:</strong> arimpam@rwlbd.com<br>
-            </p>
-          </div>
-
-          <div class="col-lg-4 col-md-6 footer-info">
-            <h3>About Rotation World Ltd</h3>
-            <p>A Sister Concern of System Engineering Ltd.</p>
-            <div class="social-links mt-3">
-              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-              <a target="_blank" href="https://www.facebook.com/rotationworldltd/" class="facebook"><i
-                  class="bx bxl-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="copyright">
-        &copy; Copyright <strong><span>Rotation Wolrd</span></strong>. All Rights Reserved
-      </div>
-      <div class="credits">
-        Designed & Develop by <a href="https://ositsltd.com/"><span><img class="developed-company-logo" src="https://ositsltd.com/images/logo.png" alt=""></span>OS IT Solutions Ltd.</a>
-      </div>
-    </div>
-  </footer><!-- End Footer -->
-
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-      class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-
-
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
-
-  <script>
-    AOS.init();
-  </script>
-
-</body>
-
-</html>
+{% endblock content %}
