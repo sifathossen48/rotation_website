@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% block title %}Home{% endblock %}
 {% load static %}
 {% block content %}
   
@@ -91,21 +92,16 @@
 
         <div class="row">
           <div class="col-lg-6">
-            <img data-aos="fade-right" src="assets/img/about.jpg" class="img-fluid rounded" alt="">
+            <img data-aos="fade-right" src="{{abouts.about_Image.url}}" class="img-fluid rounded" alt="">
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0 content mt-5">
             <h3 data-aos="fade-up">About us</h3>
             <p data-aos="fade-up" style="text-align: justify;" class="mt-5">
-              Rotation World Ltd. is part of The System Engineering Ltd.’s growing portfolio of engineered
-              bearings, belts, textile humidification system, textile machinery and industrial motion products. Rotation
-              World Ltd. is authorized distributor of various world reputed brand as MTK,
-              Kinex, Dodge, Temsan, Megadyne, Ammeraal Beltech, Hydroo, Ebitt. We provide a comprehensive line of power
-              transmission items used in industrial, commercial and consumer
-              applications.
+              {{abouts.content|slice:":400" | safe}}...
             </p>
 
             <div data-aos="fade-up" style="margin-top: 90px;">
-              <a href="about" class="about_rm_button">Read More</a>
+              <a href="{% url 'about' %}" class="about_rm_button">Read More</a>
             </div>
           </div>
         </div>
@@ -123,75 +119,21 @@
         <h2>Feature Products</h2>
       </div>
       <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for p in products %}
         <div data-aos="fade-up" class="col">
           <div class="card border-0 shadow-sm h-100">
-            <img src="assets/img/product/bearings/mtk/mtk-1.JPG" class="card-img-top featured_card_image p-3" alt="...">
+            <img src="{{p.image.url}}" class="card-img-top featured_card_image p-3" alt="..." height="200px">
             <div class="card-body">
-              <h5 class="card-title">DEEP GROOVE BALL BEARINGS</h5>
-              <p class="card-text">Available series number: 600 / 6000 / 6200 / 6300 / 61800 / 61900 / 16000</p>
+              <h5 class="card-title">{{p.title}}</h5>
+              <p class="card-text">{{p.description|safe}}</p>
             </div>
             <div class="p-3">
-              <p><a class="details_button" href="mtk-bearings">Details</a></p>
+              <p><a class="details_button" href="{% url 'contact'%}">Shop Now</a></p>
             </div>
           </div>
         </div>
-        <div data-aos="fade-up" class="col">
-          <div class="card border-0 shadow-sm h-100">
-            <img src="assets/img/product/bearings/mtk/mtk-4.jpg" class="card-img-top featured_card_image p-3" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">SELF ALIGNING BALL BEARINGS</h5>
-              <p class="card-text">Available series number: 600 / 6000 / 6200 / 6300 / 61800 / 61900 / 16000</p>
-            </div>
-            <div class="p-3">
-              <p><a class="details_button" href="mtk-bearings">Details</a></p>
-            </div>
-          </div>
-        </div>
-        <div data-aos="fade-up" class="col">
-          <div class="card border-0 shadow-sm h-100">
-            <img src="assets/img/product/bearings/mtk/mtk-3.jpg" class="card-img-top featured_card_image p-3" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">SINGLE & DOUBLE ROW ANGULAR CONTACT BALL BEARINGS</h5>
-              <p class="card-text">Available series number: Single: 7000/ 7200/ 7300 Double: 3200/ 3300</p>
-            </div>
-            <div class="p-3">
-              <p><a class="details_button" href="mtk-bearings">Details</a></p>
-            </div>
-          </div>
-        </div>
-        <div data-aos="fade-up" class="col">
-          <div class="card border-0 shadow-sm h-100">
-            <img src="assets/img/products/ammeraal-belt/1.JPG" class="card-img-top w-100 rounded p-3" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Ammeraal Belt Tech</h5>
-            </div>
-            <div class="p-3">
-              <p><a class="details_button" href="ammeraal-belt">Details</a></p>
-            </div>
-          </div>
-        </div>
-        <div data-aos="fade-up" class="col">
-          <div class="card border-0 shadow-sm h-100">
-            <img src="assets/img/products/ammeraal-belt/2.JPG" class="card-img-top mx-auto p-3" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Ammeraal Belt Tech</h5>
-            </div>
-            <div class="p-3">
-              <p><a class="details_button" href="mtk-bearings">Details</a></p>
-            </div>
-          </div>
-        </div>
-        <div data-aos="fade-up" class="col">
-          <div class="card border-0 shadow-sm h-100">
-            <img src="assets/img/products/ammeraal-belt/3.JPG" class="card-img-top w-100 mx-auto p-3" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Megadyne Belt</h5>
-            </div>
-            <div class="p-3">
-              <p><a class="details_button" href="megadyne">Details</a></p>
-            </div>
-          </div>
-        </div>
+        {% endfor %}
+     
       </div>
     </section>
 
@@ -209,111 +151,43 @@
       <div data-aos="fade-up" class="section-title pt-5">
         <h2>Available Brands</h2>
       </div>
-      <div data-aos="fade-up" class="featured_brand_img_bg">
+      {% for b in brands %}
+      {% if b.get_products.exists %} 
+      <div data-aos="fade-up" class="">
+        <hr>
         <div class="container">
           <img data-aos="fade-up" class="featured_brand_logo"
-            src="assets/img/feature_brand_biaring_image/products/dodge-white-new2.png" alt="">
+            src="{{b.logo.url}}" alt="">
         </div>
+        <hr>
       </div>
 
       <div class="container">
+        {% for p in b.get_products %}
         <div class="row">
           <div data-aos="fade-up" class="col-12 col-md-6 col-lg-6">
-            <h1 class="feature_brand_name">Mounted Bearings</h1>
-            <h4>Fully Assembled Bearings, Ready for Industrial Use</h4>
-            <p>Dodge bearings offer innovative designs, patented features, and consistent performance with a wide range
-              of shaft attachment methods, rolling elements, housings, and seal choices.</p>
+            <h1 class="feature_brand_name">{{p.title}}</h1>
+            {% if p.subtitle %}
+            <h4>{{p.subtitle}}</h4>
+            {% endif %}
+            <p>{{p.description|safe}}</p>
 
             <div class="pt-5">
-              <a href="contact" class="shop_button">SHOP NOW</a>
+              <a href="{% url 'contact' %}" class="shop_button">SHOP NOW</a>
             </div>
           </div>
           <div data-aos="fade-up" class="col-12 col-md-6 col-lg-6">
             <img class="featured_brand_img"
-              src="assets/img/feature_brand_biaring_image/products/dodge/img-main-MountedBearings-1.png" alt="">
+              src="{{p.image.url}}" alt="">
           </div>
         </div>
-        <div class="row">
-          <div data-aos="fade-up" class="col-12 col-md-6 col-lg-6">
-            <h3 class="mt-5">Tapered Roller Bearings</h3>
-            <p>Industry-trusted and industry-proven for over 100 years, Dodge Type E-XTRA, EXL, TAF, Double Interlock,
-              and Type K double row mounted tapered roller bearings come in a variety of housings styles and mounting
-              configurations to meet your application needs. All Dodge Type E Family bearings ship factory-ready to
-              incorporate Dodge Smart Sensor next generation condition monitoring with customizable alerts and alarms
-              via iPhone, Android, or Cloud based platform, ready to detect vibration and temperature spikes. Split
-              housed configurations like Type E-XTRA enhanced EXL and SAF dimensioned TAF offer up to five degrees of
-              misalignment and expansion capability.</p>
-
-            <div class="pt-5">
-              <a href="contact" class="shop_button">SHOP NOW</a>
-            </div>
-          </div>
-          <div data-aos="fade-up" class="col-12 col-md-6 col-lg-6">
-            <img class="w-50 d-block mx-auto mt-5"
-              src="assets/img/feature_brand_biaring_image/products/dodge/tapered_roller_bearings.png" alt="">
-          </div>
-        </div>
+        {% endfor %}
       </div>
 
-      <!--  -->
+      {% endif %}
+      {% endfor %}
 
-      <div data-aos="fade-up" class="bg-dark mt-5">
-        <div class="container">
-          <img data-aos="fade-up" class="featured_brand_logo"
-            src="assets/img/feature_brand_biaring_image/products/temson/logo.png" alt="">
-        </div>
-      </div>
-
-      <div class="container">
-        <div class="row">
-          <div data-aos="fade-up" class="col-12 col-md-6 col-lg-6">
-            <h1 class="feature_brand_name">AC unit for Textile Industry</h1>
-            <p>Designed to perform, built for
-              efficiency. Lasting solutions,
-              combining engineering and
-              process knowledge.</p>
-            <div class="pt-5">
-              <a href="contact" class="shop_button">SHOP NOW</a>
-            </div>
-          </div>
-          <div data-aos="fade-up" class="col-12 col-md-6 col-lg-6">
-            <img class="featured_brand_img" src="assets/img/products/temsan/image-1.png" alt="">
-          </div>
-        </div>
-        <div class="row">
-          <div data-aos="fade-up" class="col-12 col-md-6 col-lg-6">
-            <h1 class="feature_brand_name">Temsan Recycling Machine</h1>
-            <p>RCO100, our 100% recycled cotton
-              technology, was launched in 2016,
-              designed with the forward thinking
-              customer in mind. With our RCO100
-              technology and product, we are
-              actively improving the circular
-              economy, one metre at a time. We
-              are proud to be part of the 1% that
-              recycles textile-textile directl</p>
-
-            <div class="pt-5">
-              <a href="contact" class="shop_button">SHOP NOW</a>
-            </div>
-          </div>
-          <div data-aos="fade-up" class="col-12 col-md-6 col-lg-6">
-            <img class="w-75 d-block mx-auto rounded" src="assets/img/products/temsan/recycling-machine.jpeg" alt="">
-          </div>
-        </div>
-        <div class="row">
-          <div data-aos="fade-up" class="col-12 col-md-6 col-lg-6">
-            <h1 class="feature_brand_name">Temsan Stenter Machine</h1>
-
-            <div class="pt-5">
-              <a href="contact" class="shop_button">SHOP NOW</a>
-            </div>
-          </div>
-          <div data-aos="fade-up" class="col-12 col-md-6 col-lg-6">
-            <img class="w-75 d-block mx-auto rounded" src="assets/img/products/temsan/image-2.png" alt="">
-          </div>
-        </div>
-      </div>
+    
 
     </section>
 

@@ -1,4 +1,11 @@
-  {% load static %}
+{% load static %}
+{% url 'home' as home %}
+{% url 'about' as about %}
+{% url 'contact' as contact %}
+{% url 'industries' as industries %}
+{% url 'news' as news %}
+
+
   <!-- ======= Top Bar ======= -->
   <section id="topbar" class="d-flex align-items-center">
     <div class="container d-flex justify-content-center justify-content-md-between">
@@ -20,35 +27,25 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="{% url 'home' %}">Home</a></li>
-          <li><a href="about ">About</a></li>
-          <li class="dropdown"><a href="#"><span>Products</span> <i class="bi bi-chevron-down"></i></a>
+          <li><a class="{% if request.path == home %} active {% endif %}" href="{% url 'home' %}">Home</a></li>
+          <li><a class="{% if request.path == about %} active {% endif %}" href="{% url 'about' %}">About</a></li>
+          <li class="dropdown"><a href="#" class="{% if 'products' in request.path %} active {% endif %}"><span>Products</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li class="dropdown"><a href="#"><span>Bearings</span> <i class="bi bi-chevron-right"></i></a>
+              {% for c in category %}
+              <li class="dropdown"><a href="#"><span>{{c.title}}</span> <i class="bi bi-chevron-right"></i></a>
                 <ul class="m-2 rounded p-2">
-                  <li><a href="kinex-bearings ">KINEX Bearings</a></li>
-                  <li><a href="mtk-bearings ">MTK Bearings</a></li>
-                  <li><a href="dodge-bearings ">DODGE Bearings</a></li>
+                  {% for b in c.get_brands %}
+                  <li><a href="{% url 'brand_detail' b.pk %} ">{{b.title}}</a></li>
+                  {% endfor %}
                 </ul>
               </li>
-              <li class="dropdown"><a href="#"><span>Belt</span> <i class="bi bi-chevron-right"></i></a>
-                <ul class="m-2 rounded p-2">
-                  <li><a href="ammeraal-belt ">Ammeraal Beltech</a></li>
-                  <li><a href="megadyne "><span>Megadyne</span></a></li>
-                </ul>
-              </li>
-              <li class="dropdown"><a href="#"><span>Textile Machineries</span> <i class="bi bi-chevron-right"></i></a>
-                <ul class="m-2 rounded p-2">
-                  <li><a href="temsan ">Temsan Air</a></li>
-                  <li><a href="super ">Super</a></li>
-                </ul>
-              </li>
+              {% endfor %}
             </ul>
           </li>
-          <li><a href="{% url 'industries' %}">Industries</a></li>
-          <li><a class="active" href="{% url 'news' %} ">News & Events</a></li>
+          <li><a class="{% if request.path == industries %} active {% endif %}" href="{% url 'industries' %}">Industries</a></li>
+          <li><a class="{% if request.path == news %} active {% endif %}" href="{% url 'news' %} ">News & Events</a></li>
 
-          <li><a href="{% url 'contact' %} ">Contact</a></li>
+          <li><a class="{% if request.path == contact %} active {% endif %}" href="{% url 'contact' %} ">Contact</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>

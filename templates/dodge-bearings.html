@@ -1,113 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-    <title>DODGE Bearings - Rotation World</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
-
-    <!-- Favicons -->
-    <link href="assets/img/fav.JPG" rel="icon">
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo&display=swap" rel="stylesheet">
-
-    <!-- Vendor CSS Files -->
-    <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-    <!-- Aos Animatiom -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/3.0.0-beta.6/aos.css"
-        integrity="sha512-hoGlO+71fSG6lgS60I4bKvsFVB+bAnrVFDYlwSXoyNLppDcoupwJB7KbWq/63iACKn3gcgK9jMXd+T+YDeVrGQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/3.0.0-beta.6/aos.js"
-        integrity="sha512-tnNM6PPNOVfZ5sGPw6hThCrcUBeqt2mVEk3EAj8tCtuMHqbuVm5/HsZagrr8W2aaFE+6rKIByGwQbEnmodrYVg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-    <!-- Template Main CSS File -->
-    <link href="assets/css/style.css" rel="stylesheet">
-
-</head>
-
-<body>
-
-    <!-- ======= Top Bar ======= -->
-    <section id="topbar" class="d-flex align-items-center">
-        <div class="container d-flex justify-content-center justify-content-md-between">
-          <div class="contact-info d-flex align-items-center">
-            <i class="bi bi-envelope d-flex align-items-center"><a target="_blank"
-                href="https://mail.google.com/mail/u/0/#inbox">info@rwlbd.com</a></i>
-            <i class="bi bi-phone d-flex align-items-center ms-4"><span>+88 01989221122</span></i>
-          </div>
-        </div>
-      </section>
-
-    <!-- ======= Header ======= -->
-
-    <header id="header" class="d-flex align-items-center">
-        <div class="container d-flex justify-content-between align-items-center">
-
-            <div class="logo">
-                <a href="index"><img src="assets/img/c_logo.png" alt=""></a>
-            </div>
-
-            <nav id="navbar" class="navbar">
-                <ul>
-                    <li><a href="index">Home</a></li>
-                    <li><a href="about">About</a></li>
-                    <li class="dropdown"><a class="active" href="#"><span>Products</span> <i
-                                class="bi bi-chevron-down"></i></a>
-                        <ul>
-                            <li class="dropdown"><a href="#"><span class="active">Bearings</span> <i
-                                        class="bi bi-chevron-right"></i></a>
-                                <ul class="m-2 rounded p-2">
-                                    <li><a href="kinex-bearings">KINEX Bearings</a></li>
-                                    <li><a href="mtk-bearings">MTK Bearings</a></li>
-                                    <li><a href="dodge-bearings"><span class="active">DODGE Bearings</span></a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="dropdown"><a href="#"><span>Belt</span> <i class="bi bi-chevron-right"></i></a>
-                                <ul class="m-2 rounded p-2">
-                                    <li><a href="ammeraal-belt">Ammeraal Beltech</a></li>
-                                    <li><a href="megadyne">Megadyne</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown"><a href="#"><span>Textile Machineries</span> <i
-                                        class="bi bi-chevron-right"></i></a>
-                                <ul class="m-2 rounded p-2">
-                                    <li><a href="temsan">Temsan Air</a></li>
-                                    <li><a href="super">Super</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a href="industries">Industries</a></li>
-                    <li><a href="news">News & Events</a></li>
-
-                    <li><a href="contact">Contact</a></li>
-                </ul>
-                <i class="bi bi-list mobile-nav-toggle"></i>
-            </nav>
-
-        </div>
-    </header>
+{% extends 'base.html' %}
+{% block title %}{{brand.title}}{% endblock %}
+{% load static %}
+{% block content %}
 
     <main class="overflow-hidden">
 
         <section style="padding: 0px !important;">
             <div>
-                <img data-aos="fade-up" class="w-100 mx-auto d-block pb-0" src="assets/img/products/dodge/dodge-bg.jpg"
+                <img data-aos="fade-up" class="w-100 mx-auto d-block pb-0" src="{{brand.background.url}}"
                     alt="">
             </div>
         </section>
@@ -115,200 +15,27 @@
         <section style="padding: 0px !important;" class="products-section-bg">
 
             <div class="container w-75 pb-5">
-
+                {% for p in brand.get_products %}
                 <div class="row pt-5">
                     <div data-aos="fade-right" class="col-12 col-md-7 col-lg-7">
-                        <h1 class="bearings-name-title pt-5">BALL BEARINGS</h1>
-                        <p>When it comes to reliable service and low
-                            maintenance, Dodge mounted ball bearings are unmatched in the industry.
-                            Dodge mounted ball bearings are available in any of our proven locking devices,
-                            including our exclusive 65-degree
-                            setscrew locking system, eccentric locking collars, D-LOK™ concentric clamp locking system,
-                            and our patented GRIP
-                            TIGHT® adapter mounted ball bearing.</p>
+                        <h1 class="bearings-name-title pt-5">{{p.title}}</h1>
+                        <p>{{p.description|safe}}</p>
                         <div>
-                            <a href="contact" class="shop_button">SHOP NOW</a>
+                            <a href="{% url 'contact'%}" class="shop_button">SHOP NOW</a>
                         </div>
                     </div>
                     <div data-aos="fade-left" class="col-12 col-md-5 col-lg-5">
-                        <img class="products-img mt-5" src="assets/img/products/dodge/1.png" alt="">
+                        <img class="products-img mt-5" src="{{p.image.url}}" alt="">
                     </div>
                 </div>
+                {% endfor %}
 
-                <div class="row pt-5">
-                    <div data-aos="fade-right" class="col-12 col-md-7 col-lg-7">
-                        <h1 class="bearings-name-title pt-5">MOUNTED BEARINGS</h1>
-                        <p>Fully Assembled Bearings, Ready for
-                            Industrial Use Dodge bearings offer innovative designs, patented features, and
-                            consistent performance with a wide
-                            range of shaft attachment methods,
-                            rolling elements, housings, and seal choices.</p>
-                        <div>
-                            <a href="contact" class="shop_button">SHOP NOW</a>
-                        </div>
-                    </div>
-                    <div data-aos="fade-left" class="col-12 col-md-5 col-lg-5">
-                        <img class="products-img mt-5" src="assets/img/products/dodge/2.png" alt="">
-                    </div>
-                </div>
-
-                <div class="row pt-5">
-                    <div data-aos="fade-right" class="col-12 col-md-7 col-lg-7">
-                        <h1 class="bearings-name-title pt-5">SPHERICAL ROLLER BEARINGS</h1>
-                        <p>For nearly 100 years, industry’s leading
-                            producers have depended on Dodge roller
-                            bearings to handle their conveyance and
-                            power transmission needs. Our reputation for quality and reliability has
-                            remained throughout the years and from
-                            that, innovation and engineering a complete family of roller bearings has
-                            evolved. Today, our spherical roller bearings offer innovative designs, consistent
-                            performance and quality, a wide range of
-                            shaft attachment methods, and patented
-                            products such as Safety Mount to continue providing value to our customers.</p>
-                        <div>
-                            <a href="contact" class="shop_button">SHOP NOW</a>
-                        </div>
-                    </div>
-                    <div data-aos="fade-left" class="col-12 col-md-5 col-lg-5">
-                        <img class="products-img mt-5" src="assets/img/products/dodge/3.png" alt="">
-                    </div>
-                </div>
-
-                <div class="row pt-5">
-                    <div data-aos="fade-right" class="col-12 col-md-7 col-lg-7">
-                        <h1 class="bearings-name-title pt-5">SLEEVOIL</h1>
-                        <p>Dodge Sleevoil RTL Series hydrodynamic
-                            bearings provide exceptionally strong
-                            performance in high heat applications.
-                            The liner design offers excellent radial
-                            and thrust load capacities.</p>
-                        <div>
-                            <a href="contact" class="shop_button">SHOP NOW</a>
-                        </div>
-                    </div>
-                    <div data-aos="fade-left" class="col-12 col-md-5 col-lg-5">
-                        <img class="products-img mt-5" src="assets/img/products/dodge/4.png" alt="">
-                    </div>
-                </div>
-
-                <div class="row pt-5">
-                    <div data-aos="fade-right" class="col-12 col-md-7 col-lg-7">
-                        <h1 class="bearings-name-title pt-5">JOURNAL BEARINGS</h1>
-                        <p>Dodge offers a wide variety of journal
-                            bearings that are uniquely engineered to
-                            provide reliable performance, even in the
-                            harshest environments. Ideal for mining,
-                            air handling, unit handling, high temperature, and food and beverage applications,
-                            our journal bearings feature patented
-                            technologies that reduce maintenance
-                            and ensure long service life.</p>
-                        <div>
-                            <a href="contact" class="shop_button">SHOP NOW</a>
-                        </div>
-                    </div>
-                    <div data-aos="fade-left" class="col-12 col-md-5 col-lg-5">
-                        <img class="products-img mt-5" src="assets/img/products/dodge/5.png" alt="">
-                    </div>
-                </div>
-
-                <div class="row pt-5">
-                    <div data-aos="fade-right" class="col-12 col-md-7 col-lg-7">
-                        <h1 class="bearings-name-title pt-5">TAKE-UP FRAMES</h1>
-                        <p>Dodge offers eight take-up frame types
-                            available from stock, with standard frame
-                            travel from 1½ to 60 inches. Take-up
-                            frames allow for the mounting of Dodge
-                            ball, roller, and sleeve bearings. Our
-                            take-up frames are made to provide and
-                            maintain tension and shaft centers on a
-                            variety of belt and chain-type conveyors.</p>
-                        <div>
-                            <a href="contact" class="shop_button">SHOP NOW</a>
-                        </div>
-                    </div>
-                    <div data-aos="fade-left" class="col-12 col-md-5 col-lg-5">
-                        <img class="products-img mt-5" src="assets/img/products/dodge/6.png" alt="">
-                    </div>
-                </div>
             </div>
         </section>
 
+      
+
     </main>
 
-    <!-- ======= Footer ======= -->
-    <footer id="footer">
 
-        <div class="footer-top">
-            <div class="container">
-                <div class="row">
-
-                    <div class="col-lg-4 col-md-6 footer-links">
-                        <h4>Useful Links</h4>
-                        <ul>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Industries</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Contact</a></li>
-                        </ul>
-                    </div>
-
-
-                    <div class="col-lg-4 col-md-6 footer-contact">
-                        <h4>Contact Us</h4>
-                        <p>
-                            House # 653, Diabari Road , Uttara <br>
-                            Dhaka-1230, Bangladesh <br>
-                            <strong>Phone:</strong> +88 01933-110077<br>
-                            <strong>Email:</strong> arimpam@rwlbd.com<br>
-                        </p>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 footer-info">
-                        <h3>About Rotation World Ltd</h3>
-                        <p>A Sister Concern of System Engineering Ltd.</p>
-                        <div class="social-links mt-3">
-                            <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                            <a target="_blank" href="https://www.facebook.com/rotationworldltd/" class="facebook"><i
-                                    class="bx bxl-facebook"></i></a>
-                            <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                            <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-                            <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="copyright">
-                &copy; Copyright <strong><span>Rotation Wolrd</span></strong>. All Rights Reserved
-            </div>
-            <div class="credits">
-                Designed & Develop by <a href="https://ositsltd.com/"><span><img class="developed-company-logo" src="https://ositsltd.com/images/logo.png" alt=""></span>OS IT Solutions Ltd.</a>
-            </div>
-        </div>
-    </footer><!-- End Footer -->
-
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
-
-    <!-- Vendor JS Files -->
-    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-    <script src="assets/vendor/php-email-form/validate.js"></script>
-
-
-    <!-- Template Main JS File -->
-    <script src="assets/js/main.js"></script>
-
-    <script>
-        AOS.init();
-    </script>
-
-</body>
-
-</html>
+{% endblock %}
